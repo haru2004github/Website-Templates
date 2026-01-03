@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe | Digital Solutions</title>
+    
+    <!-- Scripts & Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* Loading Screen */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loader-circle {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Custom UI Components */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary {
+            background: var(--dark);
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.3);
+        }
+
+        .card-modern {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s ease;
+            border-radius: 24px;
+        }
+
+        .card-modern:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.08);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .floating-blob {
+            position: absolute;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 10s infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Typography spacing for Burmese */
+        p {
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-black tracking-tighter text-slate-900">
+                John<span class="text-blue-600">.</span>
+            </a>
+            
+            <div class="hidden lg:flex space-x-10 text-[13px] font-bold uppercase tracking-widest text-slate-500">
+                <a href="#about" class="hover:text-blue-600 transition">About</a>
+                <a href="#services" class="hover:text-blue-600 transition">Services</a>
+                <a href="#works" class="hover:text-blue-600 transition">Works</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+
+            <a href="#contact" class="hidden sm:block px-6 py-2.5 bg-slate-900 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-blue-600 transition">
+                Start a Project
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 px-6">
+        <div class="floating-blob w-96 h-96 bg-blue-400 top-20 -left-20"></div>
+        <div class="floating-blob w-96 h-96 bg-purple-400 bottom-20 -right-20"></div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-8">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                    </span>
+                    <span class="text-[10px] font-extrabold text-blue-700 uppercase tracking-widest">Available for Freelance</span>
+                </div>
+
+                <h1 class="text-5xl md:text-8xl font-black leading-[1.1] tracking-tighter text-slate-900 mb-8">
+                    Elevating <span class="text-blue-600">Brands</span> through Tech.
+                </h1>
+
+                <p class="text-slate-500 text-lg md:text-xl max-w-xl mb-10">
+                    ကျွန်ုပ်သည် Digital Products များနှင့် Modern Websites များကို အကောင်းဆုံး <span class="text-slate-900 font-bold italic">Execution</span> ဖြင့် တည်ဆောက်ပေးနေသော Frontend Developer တစ်ဦးဖြစ်ပါသည်။
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#works" class="btn-primary px-10 py-5 rounded-2xl font-bold text-center">View Case Studies</a>
+                    <a href="#contact" class="px-10 py-5 rounded-2xl font-bold border border-slate-200 hover:bg-slate-50 text-center transition">Let's Talk</a>
+                </div>
+            </div>
+
+            <div class="relative" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
+                    <!-- Placeholder replaced with high-quality tech visual -->
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200" alt="Development Setup" class="w-full h-[500px] object-cover">
+                </div>
+                <!-- Experience Badge -->
+                <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-xl border border-slate-100 z-20">
+                    <p class="text-4xl font-black text-blue-600">5+</p>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Years of <br> Industry Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 px-6 bg-slate-50/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.3em] mb-4">What I offer</h2>
+                <h3 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">High-End Digital Services</h3>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- UI/UX -->
+                <div class="card-modern p-10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-8">
+                        <i class="fas fa-bezier-curve"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4">UI/UX Design</h4>
+                    <p class="text-slate-500 mb-8">User-centric ဖြစ်ပြီး Brand Identity ကို ထင်ဟပ်စေမယ့် ခေတ်မီ Design များ ဖန်တီးပေးပါသည်။</p>
+                    <ul class="space-y-3 text-sm font-semibold text-slate-700">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> Figma Prototyping</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> User Interface Design</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> Mobile-First Approach</li>
+                    </ul>
+                </div>
+
+                <!-- Web Dev -->
+                <div class="card-modern p-10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-8">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4">Web Development</h4>
+                    <p class="text-slate-500 mb-8">မြန်ဆန်သွက်လက်ပြီး Performance ကောင်းမွန်တဲ့ Website များကို Clean Code ဖြင့် တည်ဆောက်ပါသည်။</p>
+                    <ul class="space-y-3 text-sm font-semibold text-slate-700">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> React & Tailwind CSS</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> Performance Optimization</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> API Integrations</li>
+                    </ul>
+                </div>
+
+                <!-- Strategy -->
+                <div class="card-modern p-10" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-8">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4">Digital Strategy</h4>
+                    <p class="text-slate-500 mb-8">သင့်လုပ်ငန်း အွန်လိုင်းမှာ ပိုမိုအောင်မြင်ဖို့အတွက် လိုအပ်တဲ့ နည်းပညာပိုင်းဆိုင်ရာ အကြံဉာဏ်များ ပေးပါသည်။</p>
+                    <ul class="space-y-3 text-sm font-semibold text-slate-700">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> SEO Mastery</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> Technical Consulting</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i> Digital Product Setup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20" data-aos="fade-up">
+                <div>
+                    <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.3em] mb-4">Case Studies</h2>
+                    <h3 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">Selected Works.</h3>
+                </div>
+                <p class="text-slate-500 max-w-sm mt-6 md:mt-0">လက်တွေ့နယ်ပယ်မှာ အောင်မြင်စွာ အကောင်အထည်ဖော်ခဲ့တဲ့ ကျွန်ုပ်၏ Project အချို့ ဖြစ်ပါသည်။</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Project 1 -->
+                <div class="group cursor-pointer" data-aos="fade-right">
+                    <div class="relative overflow-hidden rounded-[2.5rem] mb-6">
+                        <img src="https://plus.unsplash.com/premium_photo-1682140914933-f9704d7bc14f?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Analytics Dashboard" class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                            <span class="px-8 py-3 bg-white text-slate-900 rounded-full font-bold">View Details</span>
+                        </div>
+                    </div>
+                    <p class="text-blue-600 text-xs font-bold uppercase tracking-widest mb-2">Web Application</p>
+                    <h4 class="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition">SaaS Analytics Dashboard</h4>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group cursor-pointer" data-aos="fade-left">
+                    <div class="relative overflow-hidden rounded-[2.5rem] mb-6">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" alt="E-Commerce Solution" class="w-full h-[400px] object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                            <span class="px-8 py-3 bg-white text-slate-900 rounded-full font-bold">View Details</span>
+                        </div>
+                    </div>
+                    <p class="text-blue-600 text-xs font-bold uppercase tracking-widest mb-2">E-Commerce</p>
+                    <h4 class="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition">Modern Retail Platform</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-32 px-6 bg-slate-900 text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h3 class="text-3xl md:text-5xl font-black">Client Satisfaction <br> is my Priority.</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-10 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-quote-left text-blue-500 text-3xl mb-6"></i>
+                    <p class="text-slate-300 mb-8 italic">"ကျွန်တော့်ရဲ့ လုပ်ငန်းအတွက် Website ကို သတ်မှတ်ချိန်အတွင်း Professional ဆန်ဆန် ဖန်တီးပေးခဲ့ပါတယ်။ အရမ်းကျေနပ်မိပါတယ်။"</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center font-bold">M</div>
+                        <div>
+                            <p class="font-bold">U Myo Min</p>
+                            <p class="text-xs text-slate-500">CEO, TechNest</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-10 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-quote-left text-blue-500 text-3xl mb-6"></i>
+                    <p class="text-slate-300 mb-8 italic">"Design ပိုင်းက အရမ်း Modern ဖြစ်ပါတယ်။ ကျွန်မတို့ ရည်ရွယ်ထားတဲ့ User Experience အတိုင်း အတိအကျ ရခဲ့ပါတယ်။"</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center font-bold">A</div>
+                        <div>
+                            <p class="font-bold">Daw Aye Aye</p>
+                            <p class="text-xs text-slate-500">Founder, Creative Agency</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-10 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-quote-left text-blue-500 text-3xl mb-6"></i>
+                    <p class="text-slate-300 mb-8 italic">"နည်းပညာပိုင်းရော ဝန်ဆောင်မှုပိုင်းမှာရော စိတ်ချရတဲ့ Developer တစ်ဦးပါ။ Performance ကလည်း ထိပ်တန်းပါပဲ။"</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center font-bold">H</div>
+                        <div>
+                            <p class="font-bold">Ko Htet Arkar</p>
+                            <p class="text-xs text-slate-500">Marketing Lead</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
+            <div data-aos="fade-right">
+                <h2 class="text-blue-600 font-bold text-xs uppercase tracking-[0.3em] mb-4">Get in touch</h2>
+                <h3 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] tracking-tighter mb-8">Let's build <br> something <br> great.</h3>
+                <p class="text-slate-500 text-lg mb-12">သင့်ရဲ့ Idea တွေကို လက်တွေ့အဖြစ် ပြောင်းလဲဖို့ အဆင်သင့်ဖြစ်ပြီလား? ကျွန်ုပ်ထံသို့ အချိန်မရွေး ဆက်သွယ်နိုင်ပါသည်။</p>
+                
+                <div class="space-y-6">
+                    <a href="mailto:hello@bhonepyaesone.dev" class="flex items-center space-x-6 group">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition duration-300">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <span class="text-xl font-bold">hello@bhonepyaesone.dev</span>
+                    </a>
+                    <a href="tel:+95912345678" class="flex items-center space-x-6 group">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition duration-300">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <span class="text-xl font-bold">+95 9 123 456 789</span>
+                    </a>
+                </div>
+            </div>
+
+            <div data-aos="fade-left" class="bg-white p-10 md:p-12 rounded-[3rem] border border-slate-100 shadow-2xl shadow-slate-200/50">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Your Name" class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-blue-600 transition">
+                        <input type="email" placeholder="Email Address" class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-blue-600 transition">
+                    </div>
+                    <select class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-blue-600 transition">
+                        <option>Web Development</option>
+                        <option>UI/UX Design</option>
+                        <option>Digital Strategy</option>
+                    </select>
+                    <textarea rows="4" placeholder="How can I help you?" class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-blue-600 transition"></textarea>
+                    <button class="btn-primary w-full py-5 rounded-2xl font-bold text-lg">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-slate-400 font-bold text-sm">© 2024 John Doe. All Rights Reserved.</p>
+            <div class="flex space-x-8">
+                <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // Hide Loader
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-lg');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
