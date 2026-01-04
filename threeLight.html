@@ -81,7 +81,8 @@
             border: 1px solid rgba(0, 0, 0, 0.05);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
-            overflow: hidden;
+            /* This will now only clip things INSIDE the card, not the badge */
+            overflow: hidden; 
         }
 
         .bento-card:hover {
@@ -441,18 +442,31 @@
                 </div>
 
                 <!-- Pro -->
-                <div class="bento-card p-8 md:p-10 rounded-3xl border-blue-600/30 flex flex-col relative" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 right-10 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Most Popular</div>
-                    <h4 class="text-lg font-black uppercase mb-2 text-slate-900">Standard</h4>
-                    <p class="text-[9px] text-slate-400 mb-8 uppercase tracking-widest">For Growing Businesses</p>
-                    <div class="text-3xl md:text-4xl font-black mb-8 text-blue-600">$3XX <span class="text-xs font-normal text-slate-400">/ project</span></div>
-                    <ul class="space-y-4 mb-10 text-xs text-slate-700 flex-grow">
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i> Multi-Page Website</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i> Contact Form & CRM</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i> SEO Optimization</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i> Sheets Integration</li>
-                    </ul>
-                    <a href="#contact" class="block text-center py-4 bg-blue-600 text-white rounded-xl font-bold uppercase text-[9px] tracking-widest hover:bg-blue-700 transition">Get Standard</a>
+               <div class="relative" data-aos="fade-up" data-aos-delay="100">
+    
+                    <div class="absolute top-0 right-10 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest z-10">
+                        Most Popular
+                    </div>
+
+                    <div class="bento-card p-8 md:p-10 rounded-3xl border-blue-600/30 flex flex-col h-full">
+                        <h4 class="text-lg font-black uppercase mb-2 text-slate-900">Standard</h4>
+                        <p class="text-[9px] text-slate-400 mb-8 uppercase tracking-widest">For Growing Businesses</p>
+                        
+                        <div class="text-3xl md:text-4xl font-black mb-8 text-blue-600">
+                            $3XX <span class="text-xs font-normal text-slate-400">/ project</span>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-10 text-xs text-slate-700 flex-grow">
+                            <li><i class="fas fa-check text-blue-600 mr-2"></i> Multi-Page Website</li>
+                            <li><i class="fas fa-check text-blue-600 mr-2"></i> Contact Form & CRM</li>
+                            <li><i class="fas fa-check text-blue-600 mr-2"></i> SEO Optimization</li>
+                            <li><i class="fas fa-check text-blue-600 mr-2"></i> Sheets Integration</li>
+                        </ul>
+
+                        <a href="#contact" class="block text-center py-4 bg-blue-600 text-white rounded-xl font-bold uppercase text-[9px] tracking-widest hover:bg-blue-700 transition">
+                            Get Standard
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Custom/Enterprise -->
